@@ -4,6 +4,8 @@ using namespace std;
 
 //using recursion
 
+//more optimised
+
 int power(int base,int pwr){
     
     if(pwr==0){
