@@ -1,6 +1,10 @@
 #include<iostream>
 using namespace std;
 
+//using recursion
+//almost opposite of merge sort
+//take an element and put it at it's right place
+
 int partition(int * arr,int s,int e){
 
     int pivot = arr[s];
