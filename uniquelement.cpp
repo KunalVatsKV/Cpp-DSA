@@ -4,7 +4,7 @@ int findUnique(int arr[], int size)
 {   
     int x=0;
     for(int i=0;i<size;i=i+1){
-        x=x^arr[i];
+        x=x^arr[i];   // ^ is xor
     } 
     return x;
 }
