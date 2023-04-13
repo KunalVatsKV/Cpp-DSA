@@ -63,6 +63,8 @@ int main(){
 
     h2.name[0]='J';
 
+    h2.print();
+
     h1.print();  //here we change the firsdt letter of h2 but h1 also got modified because it also coppied the address of the "name".
 
     return 0;
