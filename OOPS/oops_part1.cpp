@@ -25,9 +25,14 @@ class Hero{
 
 int main(){
 
-    Hero kunal;   //statis allocation
+    Hero kunal;   //static allocation
 
     Hero *ramesh = new Hero;   //dynamic allocation
+    (*ramesh).setHealth(99);
+    (*ramesh).level = 'A';
+    cout<<"level: "<<(*ramesh).level<<endl;     //we can also use ramesh->level to get the same output
+    cout<<"Health: "<<(*ramesh).getHealth()<<endl;
+
 
 
     kunal.level = 'S';
