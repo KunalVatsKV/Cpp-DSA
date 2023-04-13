@@ -22,6 +22,10 @@ class Hero{
         
     }
 
+    void print(){
+        cout<<"Health is: "<<this->health<<endl;
+    }
+
 
 
 };
@@ -34,6 +38,9 @@ int main(){
     Hero vats(100);
     cout<<"Address of the object 'vats': "<<&vats<<endl;
     cout<<"heath of vats: "<<vats.health<<endl;
+
+    Hero xyz(vats); //this is how we copy an object  //calls a copy constructor which is a shallow copy (explained in the showd copy file)
+    vats.print();
 
 
 
