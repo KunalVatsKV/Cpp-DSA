@@ -11,12 +11,25 @@ class Node{
 
     public:
     int data;
-    Node* next;
+    Node* next; 
 
+    //constructor
     Node(int data){
         this->data=data;
         this->next=NULL;
     }
+
+    //destructor
+    // ~Node(){
+    //     int value=this->data;
+    //     if(this->next!=NULL){ 
+    //         delete next;
+    //         this->next=NULL;
+    //     }
+
+    //     cout<<"Memory free for node with data: "<<this->data<<endl;
+    // }
+
 
 
 
@@ -76,6 +89,71 @@ void InsertAtPosition(Node*& head,Node*& tail,int position,int d){
     
 }
 
+void DeleteNode(Node*& head,Node*& tail,int position){
+
+    //deleting first node or staring node
+    if(position==1){
+        Node* temp=head;
+        head=head->next;
+        //memory free ->start node
+        temp->next=NULL;
+        delete temp;
+    }
+    else{
+        Node* current=head;
+        Node* previous=NULL;
+        int count=1;
+        while(count<position){
+            count++;
+            previous=current;
+            current=current->next;
+        }
+        
+        //means that it is the last node;
+        if(current->next==NULL){
+            tail=previous;
+        }
+
+        previous->next=current->next;
+        current->next=NULL;
+        delete current;
+
+    }
+
+}
+
+void DeleteNodeByValue(Node*& head,Node*& tail,int value){
+
+    //deleting first node or staring node
+    if(value==head->data){
+        Node* temp=head;
+        head=head->next;
+        //memory free ->start node
+        temp->next=NULL;
+        delete temp;
+    }
+    else{
+        Node* current=head;
+        Node* previous=NULL;
+        
+        while(current->data!=value){
+            previous=current;
+            current=current->next;
+        }
+        
+        //means that it is the last node;
+        if(current->next==NULL){
+            tail=previous;
+        }
+
+        previous->next=current->next;
+        current->next=NULL;
+        delete current;
+
+    }
+
+}
+
 
 int main(){
 
@@ -120,6 +198,23 @@ int main(){
     cout<<"Inserting 40 in 5th posi:"<<endl;
     InsertAtPosition(head,tail,5,40);
     print(head);
+
+    cout<<endl;
+
+    cout<<"Deleting the element at 3rd position:"<<endl;
+    DeleteNode(head,tail,3);
+    print(head);
+
+    cout<<endl;
+
+    cout<<"Deleting the element by value (deleting 40 here)"<<endl;
+    DeleteNodeByValue(head,tail,40);
+    print(head);
+
+    cout<<endl;
+    
+    cout<<"Head: "<<head->data<<endl;
+    cout<<"Tail: "<<tail->data<<endl;
 
 
 
