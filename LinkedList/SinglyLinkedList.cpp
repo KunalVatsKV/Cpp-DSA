@@ -47,7 +47,26 @@ void print(Node* &head){
 
 }
 
+void InsertAtPosition(Node* &head,int position,int d){
+    Node* temp = head;
 
+    if(position==1){
+        InsertAtHead(head,d);
+    }
+
+    int count=1;
+
+    while(count<position-1){
+        temp=temp->next;
+        count++;
+    }
+
+    Node* nodeToInsert = new Node(d);
+
+    nodeToInsert->next=temp->next;
+    temp->next=nodeToInsert; 
+    
+}
 
 
 int main(){
@@ -58,10 +77,15 @@ int main(){
     // cout<<node1->data<<endl;
     // cout<<node1->next<<endl;
 
+   
+
     //head pointed to node1
     Node* head=node1;
 
     print(head);
+
+    cout<<endl;
+    cout<<"Interting at Head:"<<endl;
 
     InsertAtHead(head,12);
 
@@ -71,7 +95,8 @@ int main(){
 
     print(head);
 
-
+    cout<<endl;
+    cout<<"Interting at tail:"<<endl;
     //for tail
  
     Node* tail=node1;
@@ -82,10 +107,11 @@ int main(){
     InsertAtTail(tail,50);
     print(head);
 
+    cout<<endl;
 
-
-
-
+    cout<<"Inserting 40 in 5th posi:"<<endl;
+    InsertAtPosition(head,5,40);
+    print(head);
 
 
 
