@@ -47,11 +47,13 @@ void print(Node* &head){
 
 }
 
-void InsertAtPosition(Node* &head,int position,int d){
+void InsertAtPosition(Node*& head,Node*& tail,int position,int d){
     Node* temp = head;
 
+    //insert at first position
     if(position==1){
         InsertAtHead(head,d);
+        return;
     }
 
     int count=1;
@@ -59,6 +61,12 @@ void InsertAtPosition(Node* &head,int position,int d){
     while(count<position-1){
         temp=temp->next;
         count++;
+    }
+
+    if(temp->next==NULL){
+        InsertAtTail(tail,d);
+        return;
+
     }
 
     Node* nodeToInsert = new Node(d);
@@ -110,7 +118,7 @@ int main(){
     cout<<endl;
 
     cout<<"Inserting 40 in 5th posi:"<<endl;
-    InsertAtPosition(head,5,40);
+    InsertAtPosition(head,tail,5,40);
     print(head);
 
 
