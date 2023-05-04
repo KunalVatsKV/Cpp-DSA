@@ -3,7 +3,8 @@
         "vector": "cpp",
         "iostream": "cpp",
         "ostream": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "new": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
